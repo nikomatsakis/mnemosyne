@@ -1,0 +1,15 @@
+[book]
+authors = ["Niko Matsakis"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Mnemosyne"
+
+[output.html]
+additional-css = ["mermaid.css"]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+
+[preprocessor]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
