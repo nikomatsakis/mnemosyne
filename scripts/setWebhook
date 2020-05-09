@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Little script that I used to set the webook from the telegram bot.
+# BOT = telegram API token
+# URL = URL for the azure function
+
+BOT=$1
+URL=$2
+curl "https://api.telegram.org/bot$BOT/setWebhook?url=$URL"

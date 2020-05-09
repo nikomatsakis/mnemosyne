@@ -14,6 +14,13 @@
       "type": "http",
       "direction": "out",
       "name": "res"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "userMessages",
+      "queueName": "user-messages",
+      "connection": "AzureWebJobsStorage"
     }
   ],
   "scriptFile": "../dist/TelegramMessageReceived/index.js"

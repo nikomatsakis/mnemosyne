@@ -1,21 +1,15 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-    const name = (req.query.name || (req.body && req.body.name));
-
-    if (name) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
+    context.log('TelegramMessageReceived');
+    let userId = req.body.message.from.id;
+    let userName = req.body.message.from.first_name;
+    let chatId = req.body.message.chat.id;
+    let text = req.body.message.text;
+    context.bindings.userMessages = [{ userId, userName, chatId, text }];
+    context.res = {
+        body: "OK"
+    };
 };
 
 export default httpTrigger;
