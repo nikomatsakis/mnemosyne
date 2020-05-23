@@ -6,6 +6,25 @@
       "direction": "in",
       "queueName": "user-messages",
       "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "userDoc",
+      "databaseName": "mnemosyne",
+      "collectionName": "users",
+      "connectionStringSetting": "MnemosyneDbPrimary",
+      "id": "{userId}",
+      "partitionKey": "{userId}"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "outUserDoc",
+      "databaseName": "mnemosyne",
+      "collectionName": "users",
+      "connectionStringSetting": "MnemosyneDbPrimary",
+      "createIfNotExists": "false"
     }
   ],
   "scriptFile": "../dist/UserMessageReceived/index.js"
