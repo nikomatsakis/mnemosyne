@@ -7,4 +7,6 @@
   - [Telegram](./architecture/telegram.md)
   - [User database](./architecture/user_database.md)
   - [Word database](./architecture/word_database.md)
+  - [Flows](./architecture/flows.md)
+    - [Add word](./architecture/flows/add_word.md)
 - [Journal](./journal.md)
