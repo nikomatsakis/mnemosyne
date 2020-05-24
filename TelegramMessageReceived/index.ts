@@ -1,4 +1,5 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+import { UserMessage } from "../MnemosyneLib/types";
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
     context.log('TelegramMessageReceived');
@@ -6,7 +7,8 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     let userName = req.body.message.from.first_name;
     let chatId = req.body.message.chat.id;
     let text = req.body.message.text;
-    context.bindings.userMessages = [{ userId, userName, chatId, text }];
+    let message: UserMessage = { userId, userName, chatId, text };
+    context.bindings.userMessages = [message];
     context.res = {
         body: "OK"
     };

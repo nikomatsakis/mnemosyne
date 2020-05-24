@@ -1,12 +1,8 @@
 import { AzureFunction, Context } from "@azure/functions";
 import fetch from "node-fetch";
+import { OutgoingMessage } from "../MnemosyneLib/types";
 
-interface UserMessage {
-    chatId: number;
-    text: string;
-}
-
-const queueTrigger: AzureFunction = async function (context: Context, message: UserMessage): Promise<void> {
+const queueTrigger: AzureFunction = async function (context: Context, message: OutgoingMessage): Promise<void> {
     context.log('TelegramMessageDeliver received', message);
 
     let token = process.env["TELEGRAM_TOKEN"];

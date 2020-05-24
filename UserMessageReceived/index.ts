@@ -1,17 +1,5 @@
 import { AzureFunction, Context } from "@azure/functions"
-
-interface UserMessage {
-    userId: string;
-    userName: string;
-    chatId: number;
-    text: string;
-}
-
-interface UserDoc {
-    id: string,
-    userName: string,
-    chatId: number,
-}
+import { UserMessage, UserDoc } from "../MnemosyneLib/types";
 
 const queueTrigger: AzureFunction = async function (context: Context, message: UserMessage, userDoc: UserDoc): Promise<void> {
     context.log('* User message', message.text, 'received from', message.userName, 'with userDoc', userDoc);
