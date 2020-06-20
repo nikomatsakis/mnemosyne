@@ -2,7 +2,7 @@ import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { UserMessage } from "../MnemosyneLib/types";
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('TelegramMessageReceived');
+    context.log(`TelegramMessageReceived(req = ${JSON.stringify(req.body)})`);
     let userId = req.body.message.from.id.toString();
     let userName = req.body.message.from.first_name;
     let chatId = req.body.message.chat.id;

@@ -24,6 +24,11 @@ function createOrUpdateUser(context: Context, message: UserMessage, userDoc: Use
         // Update the user name and chat-id with the latest we've seen from the chat service.
         userDoc.userName = message.userName;
         userDoc.chatId = message.chatId;
+
+        if (userDoc.stack === undefined) {
+            userDoc.stack = [];
+        }
+
         return userDoc;
     }
 }
@@ -34,6 +39,7 @@ function newUserDoc(context: Context, message: UserMessage): UserDoc {
         id: message.userId,
         userName: message.userName,
         chatId: message.chatId,
+        stack: [],
     };
 }
 
