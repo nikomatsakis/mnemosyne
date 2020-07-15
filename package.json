@@ -10,12 +10,12 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@types/node": "^14.0.5"
+    "@types/node": "^14.0.23",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "@azure/functions": "^1.0.2-beta2",
-    "node-fetch": "^2.6.0",
-    "typescript": "^3.9.3"
+    "@azure/functions": "^1.2.2",
+    "typescript": "^3.9.6"
   },
   "volta": {
     "node": "12.16.3"

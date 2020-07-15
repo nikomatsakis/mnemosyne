@@ -1,3 +1,5 @@
+export const USER_DOC_VERSION: number = 1;
+
 export interface UserMessage {
     userId: string;
     userName: string;
@@ -8,9 +10,22 @@ export interface UserMessage {
 
 export interface UserDoc {
     id: string,
+    version: number,
     userName: string,
     chatId: number,
-    stack: Array<AddWordState>
+    stack: Array<Listener>,
+}
+
+export type Listener = (
+    DefaultListener | SlashAddListener
+);
+
+export interface DefaultListener {
+    name: "default";
+}
+
+export interface SlashAddListener {
+    name: "slashAdd";
 }
 
 export interface AddWordState {

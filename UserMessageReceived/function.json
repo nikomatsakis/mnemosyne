@@ -25,6 +25,13 @@
       "collectionName": "users",
       "connectionStringSetting": "MnemosyneDbPrimary",
       "createIfNotExists": "false"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "telegramOutgoing",
+      "queueName": "telegram-outgoing",
+      "connection": "AzureWebJobsStorage"
     }
   ],
   "scriptFile": "../dist/UserMessageReceived/index.js"
