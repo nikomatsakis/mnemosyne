@@ -72,6 +72,8 @@ function defaultListener(context: Context, userDoc: UserDoc, message: UserMessag
     if (message.text == "/add") {
         sendTelegramMessage(context, message, "What word would you like to add?");
         userDoc.stack.push({ name: "slashAdd" });
+    } else {
+        sendTelegramMessage(context, message, "Message not understood! Try /help, perhaps?");
     }
 }
 
